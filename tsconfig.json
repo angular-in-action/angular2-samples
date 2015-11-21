@@ -1,0 +1,17 @@
+{ 
+	"compilerOptions": { 
+		"target": "ES5",
+		"experimentalDecorators": true,
+		"emitDecoratorMetadata": true, 
+		"module": "commonjs", 
+		"sourceMap": true,
+		"inlineSources": true, 
+		"outDir":"./build"
+	}, 
+	"files": [ 
+		"node_modules/angular2/angular2.d.ts",
+		"node_modules/angular2/http.d.ts",
+		"src/app.ts", 
+		"typings/tsd.d.ts" 
+	]
+}
