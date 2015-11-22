@@ -1,5 +1,3 @@
-/// <reference path="../../typings/tsd.d.ts"/>
-
 //our root app component
 import {Component, View, CORE_DIRECTIVES, bootstrap} from 'angular2/angular2'
 import {HTTP_BINDINGS} from 'angular2/http';
