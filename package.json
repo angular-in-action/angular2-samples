@@ -4,7 +4,7 @@
   "description": "Simple Angular2 app",
   "main": "config.js",
   "scripts": {
-    "tsc": "tsc -p src -w",
+    "tsc": "tsc -w",
     "start": "live-server --open=src"
   },
   "author": "",
