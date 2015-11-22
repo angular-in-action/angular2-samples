@@ -4,12 +4,17 @@
   "description": "Simple Angular2 app",
   "main": "config.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "tsc": "tsc -p src -w",
+    "start": "live-server --open=src"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "angular2": "^2.0.0-alpha.46",
-    "systemjs": "^0.19.6"
+    "angular2": "2.0.0-alpha.46",
+    "systemjs": "0.19.6"
+  },
+  "devDependencies": {
+    "live-server": "^0.8.2",
+    "typescript": "^1.6.2"
   }
 }
