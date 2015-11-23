@@ -2,8 +2,14 @@
 <html>
 
   <head>
-    <title>angular2 playground</title>
-    <link rel="stylesheet" href="style.css" />
+    <title>Basic Angular 2 Application</title>
+  </head>
+
+  <body>
+    <app>
+      loading...
+    </app>
+    
     <script src="./lib/system.src.js"></script>
     <script src="./lib/angular2.dev.js"></script>
     <script src="./lib/http.dev.js"></script>
@@ -13,15 +19,10 @@
         packages: {'app': {defaultExtension: 'js'}},
       });
       
-      System.import('app/app')
+      System.import('app/bootstrap')
         .catch(console.error.bind(console));
     </script>
-  </head>
-
-  <body>
-    <app>
-      loading...
-    </app>
+    
   </body>
 
 </html>

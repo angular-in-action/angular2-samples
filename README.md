@@ -1,5 +1,11 @@
-### Angular2 Starter Plunker - Typescript - Alpha .42
+### Basic Angular 2 Application
 
-A simple plunker demonstrating Angular2 usage:
-- Uses SystemJS + TypeScript to compile on the fly
-- Includes binding, directives, and DI usage.
+Setup:
+
+```javascript
+npm start
+```
+
+You can then open a browser to [http://localhost:8080](http://localhost:8080)
+
+NOTE: `npm start` command will do `npm install` and then run `gulp go` to transpile assets and start a simple Express server.

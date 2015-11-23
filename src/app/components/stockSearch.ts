@@ -28,9 +28,7 @@ export class StockSearch {
     let stocksArray = this.searchText.split(',').map(x => x.trim());
     
     this.stockService.snapshot(stocksArray)
-    .subscribe(
-      x => console.log('next')
-    , e => console.log('error')
-    , () => console.log('always call this'))
+    .then(data => this.stocks = data)
+    .catch(err => console.log('error!', err));
   }
 }
