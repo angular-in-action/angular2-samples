@@ -25,9 +25,7 @@ export class StockSearch {
   constructor(public stockService:StocksService) {}
   
   doSearch() {
-    let stocksArray = this.searchText.split(',').map(x => x.trim());
-    
-    this.stockService.snapshot(stocksArray)
+    this.stockService.snapshot(this.searchText)
     .then(data => this.stocks = data)
     .catch(err => console.log('error!', err));
   }
