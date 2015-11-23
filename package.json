@@ -2,19 +2,32 @@
   "name": "second-angular-app",
   "version": "1.0.0",
   "description": "Simple Angular2 app",
-  "main": "config.js",
+  "main": "server/server.js",
   "scripts": {
     "tsc": "tsc -w",
-    "start": "live-server --open=src"
+    "start": "npm install && node ./node_modules/gulp/bin/gulp.js go"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Jason Aden",
+  "license": "MIT",
   "dependencies": {
     "angular2": "2.0.0-alpha.46",
-    "systemjs": "0.19.6"
+    "systemjs": "0.19.6",
+    "express": "4.13.1",
+    "reflect-metadata": "0.1.0",
+    "yahoo-finance": "0.2.11"
   },
   "devDependencies": {
-    "live-server": "^0.8.2",
+    "del": "^2.1.0",
+    "gulp": "^3.9.0",
+    "gulp-changed": "^1.3.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-tslint": "^3.6.0",
+    "gulp-typescript": "^2.9.2",
+    "gulp-util": "^3.0.7",
+    "minimist": "^1.2.0",
+    "run-sequence": "^1.1.5",
+    "tsd": "^0.6.5",
     "typescript": "^1.6.2"
   }
 }

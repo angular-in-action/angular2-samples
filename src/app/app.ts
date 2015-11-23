@@ -1,20 +1,21 @@
 //our root app component
 import {Component, View, CORE_DIRECTIVES, bootstrap} from 'angular2/angular2'
 import {HTTP_BINDINGS} from 'angular2/http';
-import {AppHeader} from './layout/appHeader';
-import {AppContent} from './layout/appContent';
+import {StockSearch} from './components/stockSearch';
 
 @Component({
   selector: 'app'
 })
 @View({
   template: `
-    <app-header></app-header>
-    <app-content>
+    <header>
+      <h2>Second Angular 2 App</h2>
+    </header>
+    <stock-search>
       
-    </app-content>
+    </stock-search>
   `,
-  directives: [CORE_DIRECTIVES, AppHeader, AppContent]
+  directives: [CORE_DIRECTIVES, StockSearch]
 })
 export class App {}
 
