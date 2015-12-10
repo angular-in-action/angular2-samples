@@ -7,7 +7,7 @@ var minimist = require('minimist');
 
 // Express App
 var app = express();
-var args = minimist(process.argv.slice(2), {default: {port: '8080'}});
+var args = minimist(process.argv.slice(2), {default: {port: process.env.NODE_ENV == 'production' ? '80' : '8080'}});
 
 var PORT = args.port;
 var DIST_DIR = path.join(__dirname, '..', 'dist');
