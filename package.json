@@ -11,7 +11,7 @@
   "license": "MIT",
   "engines": {
     "node": ">=0.12.6 <0.13",
-    "npm": "~2.14.13"
+    "npm": "~2.9.1"
   },
   "dependencies": {
     "angular2": "2.0.0-alpha.46",
