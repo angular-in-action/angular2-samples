@@ -114,13 +114,10 @@ if [ -e "$DEPLOYMENT_TARGET/package.json" ]; then
   cd "$DEPLOYMENT_TARGET"
   eval $NPM_CMD install
   exitWithMessageOnError "npm failed"
+  node ./node_modules/gulp/bin/gulp.js bundle
+  exitWithMessageOnError "gulp bundle failed"
   cd - > /dev/null
 fi
-
-# 4. Check for gulpfile
-# if [ -e "$DEPLOYMENT_TARGET/gulpfile.js" ]; then
-#   eval $NPM_CMD
-# fi
 
 ##################################################################################################################################
 
