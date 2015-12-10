@@ -5,8 +5,7 @@
   "main": "server/server.js",
   "scripts": {
     "tsc": "tsc -w",
-    "start": "npm install && node ./node_modules/gulp/bin/gulp.js go",
-    "bundle": "npm install && node ./node_modules/gulp/bin/gulp.js bundle"
+    "start": "node server/server.js"
   },
   "author": "Jason Aden",
   "license": "MIT",
