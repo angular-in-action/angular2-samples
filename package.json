@@ -5,10 +5,14 @@
   "main": "server/server.js",
   "scripts": {
     "tsc": "tsc -w",
-    "start": "npm install && node ./node_modules/gulp/bin/gulp.js go"
+    "start": "node server/server.js"
   },
   "author": "Jason Aden",
   "license": "MIT",
+  "engines": {
+    "node": ">=0.12.6 <0.13",
+    "npm": "~2.9.1"
+  },
   "dependencies": {
     "angular2": "2.0.0-alpha.46",
     "systemjs": "0.19.6",
