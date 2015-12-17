@@ -11,6 +11,7 @@ var tsd = require('tsd');
 var ts = require('gulp-typescript');
 var tslint = require('gulp-tslint');
 var minimist = require('minimist');
+var browserSync = require('browser-sync');
 
 var packageJson = require('./package.json');
 
@@ -129,7 +130,7 @@ process.on('exit', function() {
   }
 });
 
-gulp.task('go', ['bundle', 'server:restart'], function() {
+gulp.task('go', ['bundle', 'server:restart', 'browser-sync'], function() {
   gulp.watch(PATHS.client.ts, ['ts']);
   gulp.watch(PATHS.client.html, ['html']);
   gulp.watch(PATHS.client.css, ['css']);
@@ -138,3 +139,16 @@ gulp.task('go', ['bundle', 'server:restart'], function() {
 });
 
 gulp.task('default', ['bundle']);
+
+// Watch for changes in /dist and reload the browser
+// from: https://gist.github.com/sogko/b53d33d4f3b40d3b4b2e
+// See the gulpfile.js entry
+gulp.task('browser-sync', [], function() {
+  browserSync.init(null, {
+    proxy: "http://localhost:8080",
+        files: [PATHS.distClient + "/**/*.*"],
+        browser: "google chrome",
+        port: 7000,
+  });
+});
+
