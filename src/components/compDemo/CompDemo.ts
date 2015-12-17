@@ -1,4 +1,3 @@
-/// <reference path="../../node_modules/angular2/angular2.d.ts" />
 import {Component, View, CORE_DIRECTIVES} from 'angular2/angular2';
 import { ParentComp } from './components/ParentComp'; 
 
