@@ -16,8 +16,7 @@ var DIST_DIR = path.join(__dirname, '..', 'dist');
 // Send static files from these directories
 app.use('/lib', express.static(DIST_DIR + '/lib'));
 app.use('/client', express.static(DIST_DIR + '/client'));
-app.use('/app', express.static(DIST_DIR + '/client/app'));
-app.use('/compDemo', express.static(DIST_DIR + '/client/compDemo'));
+app.use('/', express.static(DIST_DIR + '/client'));
 
 var router = express.Router();
 
@@ -60,14 +59,14 @@ router.get('/api/historical/:symbol', function(req, res) {
   });
 });
 
-router.get('/index2.html', function(req, res) {
-  res.sendFile(DIST_DIR + '/client/index2.html');
-});
+// router.get('/index2.html', function(req, res) {
+//   res.sendFile(DIST_DIR + '/client/index2.html');
+// });
 
-// Send any other urls to the client app to load.
-router.get('*', function(req, res) {
-  res.sendFile(DIST_DIR + '/client/index.html');
-});
+// // Send any other urls to the client app to load.
+// router.get('*', function(req, res) {
+//   res.sendFile(DIST_DIR + '/client/index.html');
+// });
 
 app.use('/', router);
 

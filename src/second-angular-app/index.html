@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Basic Angular 2 Application Demonstration</title>
+  </head>
+
+  <body>
+    <app>
+      loading...
+    </app>
+    
+    <script src="/lib/system.src.js"></script>
+    <script src="/lib/angular2.dev.js"></script>
+    <script src="/lib/http.dev.js"></script>
+    <script>
+      System.config({
+        //packages defines our app package
+        packages: {'app': {defaultExtension: 'js'}},
+      });
+      
+      System.import('app/bootstrap')
+        .catch(console.error.bind(console));
+    </script>
+    
+  </body>
+
+</html>

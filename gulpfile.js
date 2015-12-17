@@ -25,9 +25,6 @@ var PATHS = {
     'node_modules/angular2/bundles/angular2.dev.js',
 		'node_modules/angular2/bundles/http.dev.js'
   ],
-  typings: [
-    'typings/tsd.d.ts'
-  ],
   client: {
     ts: ['src/**/*.ts'],
     html: 'src/**/*.html',
@@ -40,7 +37,18 @@ var PATHS = {
   port: 8080
 };
 
-var tsProject = ts.createProject('tsconfig.json', {
+var tsProject = ts.createProject({
+  emitDecoratorMetadata: true,
+  experimentalDecorators: true,
+  declaration: true,
+  module: "commonjs",
+  rootDir: ".",
+  sourceMap: true,
+  sourceRoot: ".",
+  target: "es5",
+  outDir: "../dist",
+  moduleResolution: "node",
+  noImplicitAny: false,
   typescript: require('typescript')
 });
 
