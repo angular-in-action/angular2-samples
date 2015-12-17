@@ -21,6 +21,7 @@
     "yahoo-finance": "0.2.11"
   },
   "devDependencies": {
+    "browser-sync": "^2.10.0",
     "del": "^2.1.0",
     "gulp": "^3.9.0",
     "gulp-changed": "^1.3.0",

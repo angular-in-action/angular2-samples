@@ -17,6 +17,7 @@ var DIST_DIR = path.join(__dirname, '..', 'dist');
 app.use('/lib', express.static(DIST_DIR + '/lib'));
 app.use('/client', express.static(DIST_DIR + '/client'));
 app.use('/app', express.static(DIST_DIR + '/client/app'));
+app.use('/compDemo', express.static(DIST_DIR + '/client/compDemo'));
 
 var router = express.Router();
 
@@ -59,6 +60,10 @@ router.get('/api/historical/:symbol', function(req, res) {
   });
 });
 
+router.get('/index2.html', function(req, res) {
+  res.sendFile(DIST_DIR + '/client/index2.html');
+});
+
 // Send any other urls to the client app to load.
 router.get('*', function(req, res) {
   res.sendFile(DIST_DIR + '/client/index.html');
@@ -69,3 +74,4 @@ app.use('/', router);
 app.listen(PORT, function() {
   console.log('Server started at http://localhost:' + PORT);
 });
+
