@@ -24,7 +24,6 @@
     "yahoo-finance": "0.2.11"
   },
   "devDependencies": {
-    "bluebird": "^3.1.1",
     "del": "^2.1.0",
     "gulp": "^3.9.0",
     "gulp-changed": "^1.3.0",
@@ -35,7 +34,6 @@
     "gulp-util": "^3.0.7",
     "minimist": "^1.2.0",
     "run-sequence": "^1.1.5",
-    "sigmund": "^1.0.1",
     "tsd": "^0.6.5",
     "typescript": "^1.6.2"
   }
