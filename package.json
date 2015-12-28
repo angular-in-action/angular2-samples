@@ -36,6 +36,7 @@
     "gulp-util": "^3.0.7",
     "minimist": "^1.2.0",
     "run-sequence": "^1.1.5",
+    "sigmund": "^1.0.1",
     "tsd": "^0.6.5",
     "typescript": "^1.6.2"
   }
