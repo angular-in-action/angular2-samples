@@ -11,7 +11,6 @@ var tsd = require('tsd');
 var ts = require('gulp-typescript');
 var tslint = require('gulp-tslint');
 var minimist = require('minimist');
-var browserSync = require('browser-sync');
 
 var packageJson = require('./package.json');
 
