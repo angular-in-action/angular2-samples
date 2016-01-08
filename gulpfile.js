@@ -11,6 +11,7 @@ var tsd = require('tsd');
 var ts = require('gulp-typescript');
 var tslint = require('gulp-tslint');
 var minimist = require('minimist');
+var browserSync = require('browser-sync');
 
 var packageJson = require('./package.json');
 
@@ -19,10 +20,13 @@ var server;
 
 var PATHS = {
   lib: [
-    'node_modules/systemjs/dist/system.src.js',
+    'node_modules/systemjs/dist/system.js',
     'node_modules/systemjs/dist/system-polyfills.js',
+    'node_modules/angular2/bundles/angular2-polyfills.js',
     'node_modules/angular2/bundles/angular2.dev.js',
-		'node_modules/angular2/bundles/http.dev.js'
+		'node_modules/angular2/bundles/http.dev.js',
+		'node_modules/rxjs/bundles/Rx.js',
+		'node_modules/es6-shim/es6-shim.js'
   ],
   client: {
     ts: ['src/**/*.ts'],
@@ -40,7 +44,7 @@ var tsProject = ts.createProject({
   emitDecoratorMetadata: true,
   experimentalDecorators: true,
   declaration: true,
-  module: "commonjs",
+  module: "system",
   rootDir: ".",
   sourceMap: true,
   sourceRoot: ".",
