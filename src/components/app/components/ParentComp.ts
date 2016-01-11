@@ -1,17 +1,16 @@
-import {Component, View, Input, Output, CORE_DIRECTIVES, EventEmitter} from 'angular2/angular2';
+import {Component, View, Input, Output, EventEmitter} from 'angular2/core';
 
 @Component({
-    selector: 'parent-comp',
+    selector: 'ParentComp',
     inputs: ['myname'],
     outputs: ['myevent']
 })
 @View({
-    template: `
-      <div (click)="fireMyEvent()">
-        Here is ParentComp and here's 'myname': {{myname}}
-      </div>
-    `,
-    directives: [CORE_DIRECTIVES]
+  template: `
+    <div (click)="fireMyEvent()">
+      Here is ParentComp and here's 'myname': {{myname}}
+    </div>
+  `
 })
 
 export class ParentComp {

@@ -1,7 +1,7 @@
 //our root app component
-import {bootstrap} from 'angular2/angular2'
-import {HTTP_BINDINGS} from 'angular2/http'
-import {AppComponent} from './app'
+import {bootstrap} from 'angular2/platform/browser';
+import {CompDemo} from './CompDemo';
 
-bootstrap(AppComponent, [HTTP_BINDINGS])
+bootstrap(CompDemo)
   .catch(err => console.error(err));
+

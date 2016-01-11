@@ -4,20 +4,21 @@
     <title>Component Annotations Demo</title>
   </head>
   <body>
-    <comp-demo [myname]='will not work'>
+    <CompDemo [myname]='will not work'>
       Loading ...
-    </comp-demo>
+    </CompDemo>
 
-    <script src="/lib/system.src.js"></script>
+    <script src="/lib/angular2-polyfills.js"></script>
+    <script src="/lib/system.js"></script>
+    <script src="/lib/Rx.js"></script>
     <script src="/lib/angular2.dev.js"></script>
-    <script src="/lib/http.dev.js"></script>
     <script>
       System.config({
         //packages defines our app package
-        packages: {'compDemo': {defaultExtension: 'js'}},
+        packages: {'app': {defaultExtension: 'js'}},
       });
       
-      System.import('compDemo/bootstrap')
+      System.import('app/bootstrap')
         .catch(console.error.bind(console));
     </script>
     
