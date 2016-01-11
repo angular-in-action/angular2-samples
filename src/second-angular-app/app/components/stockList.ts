@@ -1,19 +1,18 @@
 // List people
-import {Component, View, CORE_DIRECTIVES} from 'angular2/angular2'
+import {Component, View} from 'angular2/core'
 
 @Component({
-  selector: 'stock-list',
+  selector: 'StockList',
   inputs: ['stocks']
 })
 @View({
   template: `
     <ul>
-      <li *ng-for="#stock of stocks">
+      <li *ngFor="#stock of stocks">
         <strong>{{stock.symbol}} ({{stock.ask | currency:'USD':true}}):</strong> {{stock.name}}
       </li>
     </ul>
-  `,
-  directives: [CORE_DIRECTIVES]
+  `
 })
 export class StockList {
   public stocks: Array<string>;

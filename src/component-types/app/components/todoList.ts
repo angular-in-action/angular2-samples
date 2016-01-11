@@ -1,4 +1,4 @@
-import {Component, Input} from 'angular2/core';
+import {Component, Input, Output, EventEmitter} from 'angular2/core';
 import {Todo} from './todo';
 import {TodoModel} from '../models/todo';
 
@@ -6,11 +6,12 @@ import {TodoModel} from '../models/todo';
   selector: 'TodoList',
   template: `
     <ul>
-      <Todo *ngFor="#todo of todos" [todo]="todo"></Todo>
+      <Todo (onToggle)="onTodoToggle.emit($event)" *ngFor="#todo of todos" [todo]="todo"></Todo>
     </ul>
   `,
   directives: [Todo]
 })
 export class TodoList {
   @Input() todos: TodoModel[];
+  @Output() onTodoToggle = new EventEmitter();
 }

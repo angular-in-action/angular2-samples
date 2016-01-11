@@ -1,0 +1,19 @@
+
+
+<!-- Angular 2 we know [stocks] causes "stocks" to
+  parsed and passed to StockList component -->
+<StockList [stocks]="stocks"></StockList>
+
+<!-- Angular 1 doesn't use brakcets. Looking just at
+  the HTML we don't know how the directive is using
+  the stocks attribute -->
+<stock-list stocks="stocks"></stock-list>
+
+
+<!-- Angular 2 requires both event and attribute
+  bindings to be explicitly clear wa want 2-way binding -->
+<input [(ngModel)]="searchText">
+
+<!-- Angular 1 looks simpler without the [(...)]. -->
+<input ng-model="searchText">
+

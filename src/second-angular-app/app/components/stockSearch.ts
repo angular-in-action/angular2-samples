@@ -1,9 +1,9 @@
-import {Component, View} from 'angular2/angular2'
+import {Component, View} from 'angular2/core'
 import {StockList} from './stockList'
 import {StocksService} from '../services/stocks'
 
 @Component({
-  selector: 'stock-search',
+  selector: 'StockSearch',
   providers: [StocksService]
 })
 @View({
@@ -11,9 +11,9 @@ import {StocksService} from '../services/stocks'
     <section>
       <h3>Stock Price & Name Lookup:</h3>
       <form (submit)="doSearch()">
-        <input [(ng-model)]="searchText">
+        <input [(ngModel)]="searchText"/>
       </form>
-      <stock-list [stocks]="stocks"></stock-list>
+      <StockList [stocks]="stocks"></StockList>
     </section>
   `,
   directives: [StockList]
@@ -26,7 +26,9 @@ export class StockSearch {
   
   doSearch() {
     this.stockService.snapshot(this.searchText)
-    .then(data => this.stocks = data)
-    .catch(err => console.log('error!', err));
+    .subscribe(
+      (data) => {this.stocks = data},
+      (err) => {console.log('error!', err)}
+    );
   }
 }

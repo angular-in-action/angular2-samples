@@ -1,19 +1,14 @@
-import {Component, Input} from 'angular2/core';
-import {TodoModel} from '../models/todo';
+import {Component, Output, EventEmitter} from 'angular2/core';
 
 @Component({
   selector: 'AddTodo',
   template: `
-    <form (ngSubmit)="onAddTodo(newTodo);">
+    <form (ngSubmit)="onAddTodo.emit(newTodo);">
       <input [(ngModel)]="newTodo"/>
       <button type="submit">Add Todo</button>
     </form>
   `
 })
 export class AddTodo {
-  @Input() todos:TodoModel[];
-
-  onAddTodo(todo: string): void {
-    this.todos.push({title: todo, completed: false});
-  }
+  @Output() onAddTodo = new EventEmitter();
 }
