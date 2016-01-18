@@ -11,8 +11,5 @@ import {addTodo} from '../store';
   `
 })
 export class AddTodo {
-  addTodo;
-  constructor () {
-    this.addTodo = addTodo;
-  }
+  addTodo = addTodo;
 }
