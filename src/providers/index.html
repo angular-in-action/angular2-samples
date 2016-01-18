@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Angular 2 Providers Demo</title>
+  </head>
+  <body>
+    <ProvDemo [myname]='will not work'>
+      Loading ...
+    </ProvDemo>
+
+    <script src="/lib/angular2-polyfills.js"></script>
+    <script src="/lib/system.js"></script>
+    <script src="/lib/Rx.js"></script>
+    <script src="/lib/angular2.dev.js"></script>
+    <script>
+      System.config({
+        //packages defines our app package
+        packages: {'app': {defaultExtension: 'js'}},
+      });
+      
+      System.import('app/bootstrap')
+        .catch(console.error.bind(console));
+    </script>
+    
+  </body>
+
+</html>
