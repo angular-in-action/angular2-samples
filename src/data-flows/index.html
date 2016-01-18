@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Presentation vs Organization Components</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/app.css">
+  </head>
+
+  <body>
+    <!-- Page Content -->
+    <div class="container">
+
+        <!-- Page Features -->
+        <div class="row">
+
+            <div class="col-md-4 col-sm-6 figure" ng-app="ng1todo">
+                <h2 class="text-center">Angular 1 Todo App</h2>
+                <div class="panel panel-default" ng-controller="AddTodo as addTodo">
+                  <form ng-submit="addTodo.addTodo(todo)">
+                    <input class="form-control" ng-model="todo" placeholder="Create a Todo"/>
+                  </form>
+                </div>
+                <div class="panel panel-default" ng-controller="TodoList as todoList">
+                  <ul class="list-group">
+                    <li ng-repeat="todo in todoList.todos"
+                      ng-click="todoList.toggleTodo(todo)"
+                      ng-class="{completed: todo.completed}"
+                      class="list-group-item">{{todo.title}}</li>
+                  </ul>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-6 figure">
+                <TodoApp>
+                  loading...
+                </TodoApp>
+            </div>
+
+            <div class="col-md-4 col-sm-6 figure">
+                <div class="thumbnail">
+                    <div class="caption">
+                        <h3>Data Flows</h3>
+                        <p>A look at different how data flows through an Angular application</p>
+                        <p>
+                            <a href="data-flows/index.html" class="btn btn-primary">Go!</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container -->
+    
+    <script src="/lib/angular2-polyfills.js"></script>
+    <script src="/lib/system.js"></script>
+    <script src="/lib/Rx.js"></script>
+    <script src="/lib/angular2.dev.js"></script>
+    <script src="/lib/http.dev.js"></script>
+    <script src="/lib/angular.js"></script>
+    
+    <!-- Angular 1 App Code -->
+    <script src="ng1/ng1todo.js"></script>
+    <script src="ng1/controllers/addTodo.js"></script>
+    <script src="ng1/controllers/todoList.js"></script>
+    <script src="ng1/services/todos.js"></script>
+    <script>
+      System.config({
+        //packages defines our app package
+        packages: {'ng2': {format: 'register', defaultExtension: 'js'}}
+      });
+      
+      System.import('ng2/bootstrap')
+        .catch(console.error.bind(console));
+    </script>
+    
+  </body>
+
+</html>

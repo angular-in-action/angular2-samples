@@ -24,12 +24,14 @@ var PATHS = {
     'node_modules/systemjs/dist/system-polyfills.js',
     'node_modules/angular2/bundles/angular2-polyfills.js',
     'node_modules/angular2/bundles/angular2.dev.js',
+    'node_modules/angular/angular.js',
 		'node_modules/angular2/bundles/http.dev.js',
 		'node_modules/rxjs/bundles/Rx.js',
 		'node_modules/es6-shim/es6-shim.js'
   ],
   client: {
     ts: ['src/**/*.ts'],
+    js: ['src/**/*.js'],
     html: 'src/**/*.html',
     css: 'src/**/*.css',
     img: 'src/**/*.{svg,jpg,png,ico}'
@@ -86,6 +88,13 @@ gulp.task('lint', function () { // https://github.com/palantir/tslint#supported-
 		}));
 });
 
+gulp.task('js', function() {
+  return gulp
+    .src(PATHS.client.js)
+    .pipe(changed(PATHS.distClient))
+    .pipe(gulp.dest(PATHS.distClient));
+});
+
 gulp.task('html', function() {
   return gulp
     .src(PATHS.client.html)
@@ -113,7 +122,7 @@ gulp.task('img', function() {
 });
 
 gulp.task('bundle', function(done) {
-  runSequence('clean', 'libs', 'lint', 'ts', 'html', 'css', 'img', done);
+  runSequence('clean', 'libs', 'lint', 'ts', 'js', 'html', 'css', 'img', done);
 });
 
 gulp.task('server:restart', function(done) {
@@ -144,6 +153,7 @@ process.on('exit', function() {
 
 gulp.task('go', ['bundle', 'server:restart', 'browser-sync'], function() {
   gulp.watch(PATHS.client.ts, ['ts']);
+  gulp.watch(PATHS.client.js, ['js']);
   gulp.watch(PATHS.client.html, ['html']);
   gulp.watch(PATHS.client.css, ['css']);
   gulp.watch(PATHS.client.img, ['img']);
