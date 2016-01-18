@@ -1,11 +1,12 @@
+// Todo (components/todo.ts)
 import {Component, Input} from 'angular2/core';
-import {TodoService} from '../services/todos';
+import {toggleTodo} from '../store';
 
 @Component({
   selector: 'Todo',
   template: `
     <li [ngClass]="{completed: todo.completed}"
-      (click)="toggle(todo)"
+      (click)="toggleTodo(index)"
       class="list-group-item">
       {{todo.title}}
     </li>
@@ -13,8 +14,8 @@ import {TodoService} from '../services/todos';
 })
 export class Todo {
   @Input() todo;
-  constructor (public todoService: TodoService) {}
-  toggle (todo) {
-    this.todoService.toggle(todo);
-  }
+  @Input() index;
+  
+  // Pass through to the TodoStore
+  toggleTodo = toggleTodo;
 }

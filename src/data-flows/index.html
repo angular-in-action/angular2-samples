@@ -15,20 +15,20 @@
         <div class="row">
 
             <div class="col-md-4 col-sm-6 figure" ng-app="ng1todo">
-                <h2 class="text-center">Angular 1 Todo App</h2>
-                <div class="panel panel-default" ng-controller="AddTodo as addTodo">
-                  <form ng-submit="addTodo.addTodo(todo)">
-                    <input class="form-control" ng-model="todo" placeholder="Create a Todo"/>
-                  </form>
-                </div>
-                <div class="panel panel-default" ng-controller="TodoList as todoList">
-                  <ul class="list-group">
-                    <li ng-repeat="todo in todoList.todos"
-                      ng-click="todoList.toggleTodo(todo)"
-                      ng-class="{completed: todo.completed}"
-                      class="list-group-item">{{todo.title}}</li>
-                  </ul>
-                </div>
+              <h2 class="text-center">Angular 1 Todo App</h2>
+              <div class="panel panel-default" ng-controller="AddTodo as addTodo">
+                <form ng-submit="addTodo.addTodo(todo)">
+                  <input class="form-control" ng-model="todo" placeholder="Create a Todo"/>
+                </form>
+              </div>
+              <div class="panel panel-default" ng-controller="TodoList as todoList">
+                <ul class="list-group">
+                  <li ng-repeat="todo in todoList.todos"
+                    ng-click="todoList.toggleTodo(todo)"
+                    ng-class="{completed: todo.completed}"
+                    class="list-group-item">{{todo.title}}</li>
+                </ul>
+              </div>
             </div>
 
             <div class="col-md-4 col-sm-6 figure">
@@ -38,15 +38,9 @@
             </div>
 
             <div class="col-md-4 col-sm-6 figure">
-                <div class="thumbnail">
-                    <div class="caption">
-                        <h3>Data Flows</h3>
-                        <p>A look at different how data flows through an Angular application</p>
-                        <p>
-                            <a href="data-flows/index.html" class="btn btn-primary">Go!</a>
-                        </p>
-                    </div>
-                </div>
+                <TodoApp2>
+                  loading...
+                </TodoApp2>
             </div>
         </div>
         <!-- /.row -->
@@ -59,6 +53,7 @@
     <script src="/lib/angular2.dev.js"></script>
     <script src="/lib/http.dev.js"></script>
     <script src="/lib/angular.js"></script>
+    <script src="/lib/redux.js"></script>
     
     <!-- Angular 1 App Code -->
     <script src="ng1/ng1todo.js"></script>
@@ -68,10 +63,19 @@
     <script>
       System.config({
         //packages defines our app package
-        packages: {'ng2': {format: 'register', defaultExtension: 'js'}}
+        packages: {
+          'ng2': {format: 'register', defaultExtension: 'js'},
+          'ng2oneway': {format: 'register', defaultExtension: 'js'}
+        },
+        map: {
+          redux: '/lib/redux.js'
+        }
       });
       
       System.import('ng2/bootstrap')
+        .catch(console.error.bind(console));
+        
+      System.import('ng2oneway/bootstrap')
         .catch(console.error.bind(console));
     </script>
     

@@ -1,5 +1,6 @@
+// AddTodo (components/addTodo.ts)
 import {Component, Output, EventEmitter} from 'angular2/core';
-import {TodoService} from '../services/todos';
+import {addTodo} from '../store';
 
 @Component({
   selector: 'AddTodo',
@@ -10,10 +11,8 @@ import {TodoService} from '../services/todos';
   `
 })
 export class AddTodo {
-  
-  constructor (public todoService: TodoService) {}
-  
-  addTodo (todo) {
-    this.todoService.add(todo);
+  addTodo;
+  constructor () {
+    this.addTodo = addTodo;
   }
 }

@@ -1,19 +1,16 @@
+// TodoList (components/todoList.ts)
 import {Component, Input} from 'angular2/core';
 import {Todo} from './todo';
-import {TodoService} from '../services/todos';
 
 @Component({
   selector: 'TodoList',
   template: `
     <ul class="list-group">
-      <Todo *ngFor="#todo of todos" [todo]="todo"></Todo>
+      <Todo *ngFor="#todo of todos; #i = index;" [todo]="todo" [index]="i"></Todo>
     </ul>
   `,
   directives: [Todo]
 })
 export class TodoList {
-  todos;
-  constructor (todoService: TodoService) {
-    this.todos = todoService.todos;
-  }
+  @Input() todos;
 }

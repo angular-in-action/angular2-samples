@@ -8,11 +8,11 @@ import {TodoService} from './services/todos';
   template: `
     <Header></Header>
     <AddTodo></AddTodo>
-    <TodoList [todos]="todoService.todos"></TodoList>
+    <TodoList></TodoList>
   `,
   directives: [AddTodo, TodoList, Header],
+  // Add the TodoService so all children components 
+  // have access to the same TodoService instance.
   providers: [TodoService]
 })
-export class TodoApp {
-  constructor (public todoService: TodoService) {}
-}
+export class TodoApp {}

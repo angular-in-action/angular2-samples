@@ -27,7 +27,8 @@ var PATHS = {
     'node_modules/angular/angular.js',
 		'node_modules/angular2/bundles/http.dev.js',
 		'node_modules/rxjs/bundles/Rx.js',
-		'node_modules/es6-shim/es6-shim.js'
+		'node_modules/es6-shim/es6-shim.js',
+    'node_modules/redux/dist/redux.js'
   ],
   client: {
     ts: ['src/**/*.ts'],

@@ -2,6 +2,7 @@ angular.module('ng1todo').factory('TodoService', TodoService);
 
 function TodoService () {
 	return {
+		// Default a couple Todos for initial rendering
 		todos: [
 			{title: "Read the todo list", completed: true},
 			{title: "Look at the code", completed: false}
